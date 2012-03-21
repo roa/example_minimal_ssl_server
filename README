@@ -1,0 +1,1 @@
+example skeleton openssl server, which does nothing but prints the read data to stdout
