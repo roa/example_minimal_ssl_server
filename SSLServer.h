@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <errno.h>
+#include <sstream>
 
 
 class SSLServer
@@ -28,7 +29,10 @@ protected:
     char *host;
 
     void handleClient();
-    std::string createAnswer();
+    std::string createAnswer401();
+    std::string createAnswer200();
+    bool parseReq( std::string req );
+    std::string decodeDigest( std::string digest );
 
 };
 
