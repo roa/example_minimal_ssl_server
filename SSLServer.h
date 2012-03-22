@@ -8,6 +8,8 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <iostream>
+#include <errno.h>
+
 
 class SSLServer
 {
@@ -26,6 +28,8 @@ protected:
     char *host;
 
     void handleClient();
+    std::string createAnswer();
+
 };
 
 #endif
