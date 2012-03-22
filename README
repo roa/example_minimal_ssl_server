@@ -1,1 +1,4 @@
-example skeleton openssl server, which does nothing but prints the read data to stdout
+example skeleton openssl server
+with rfc conform basic authentication
+user:password => test123:test123
+works with chromium browser
