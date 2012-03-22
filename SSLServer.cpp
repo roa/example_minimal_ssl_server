@@ -27,6 +27,8 @@ void SSLServer::run()
         abort();
     }
 
+    dropRights();
+
     fd_set fds;
 
     int afd = BIO_get_fd( abio,NULL );
@@ -209,4 +211,14 @@ std::string SSLServer::decodeDigest( std::string digest )
     std::string decoded = buffer;
 
     return decoded;
+}
+
+void SSLServer::dropRights()
+{
+    if (getuid() == 0) {
+    if (setgid( 1000 ) != 0)
+        printf("setgid: Unable to drop group privileges: %s", strerror(errno));
+    if (setuid( 1000 ) != 0)
+        printf("setuid: Unable to drop user privileges: %S", strerror(errno));
+    }
 }

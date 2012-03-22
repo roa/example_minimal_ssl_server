@@ -33,6 +33,7 @@ protected:
     std::string createAnswer200();
     bool parseReq( std::string req );
     std::string decodeDigest( std::string digest );
+    void dropRights();
 
 };
 
