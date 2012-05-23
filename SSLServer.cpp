@@ -129,7 +129,6 @@ void SSLServer::handleClient()
     if( !tempstr.empty() )
     {
         answer = parseReq( tempstr );
-
     }
     std::string write;
     if ( answer )
@@ -193,6 +192,7 @@ bool SSLServer::parseReq( std::string req )
             }
         }
     }
+    return false;
 }
 
 std::string SSLServer::decodeDigest( std::string digest )
